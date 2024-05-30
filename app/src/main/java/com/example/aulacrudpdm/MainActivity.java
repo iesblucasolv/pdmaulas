@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void btnOnClickCadastrarCliente(View view){
+
+        /*
         ClienteDAO db = new ClienteDAO(this);
         Log.d("Insert","Inserindo clientes...");
         db.addClient(new ClienteVO("Bruno"));
@@ -64,5 +66,21 @@ public class MainActivity extends AppCompatActivity {
             String log = "Id: " + cliente.getId() + ", Nome: " + cliente.getNome();
             Log.d("Nome >>>",log);
         }
+
+        */
+
+        EditText nomeEditText = (EditText) findViewById(R.id.nome);
+        String nome = nomeEditText.getText().toString();
+        EditText emailEditText = (EditText) findViewById(R.id.email);
+        String email = emailEditText.getText().toString();
+
+        ClienteVO clienteVO = new ClienteVO();
+
+        Log.d("Insert","Inserindo clientes...");
+
+        ClienteDAO clienteDAO = new ClienteDAO(this);
+        clienteDAO.addClient(clienteVO);
+
+        Log.d("Insert","Registros inseridos");
     }
 }
