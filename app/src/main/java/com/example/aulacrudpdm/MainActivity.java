@@ -18,9 +18,6 @@ import com.example.aulacrudpdm.dao.ClienteDAO;
 import com.example.aulacrudpdm.model.ClienteVO;
 
 
-import java.util.List;
-
-
 public class MainActivity extends AppCompatActivity {
 
 
@@ -29,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.layout_cadastrar), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
@@ -82,5 +79,21 @@ public class MainActivity extends AppCompatActivity {
         clienteDAO.addClient(clienteVO);
 
         Log.d("Insert","Registros inseridos");
+    }
+
+    public void btnOnClickViewCadastrar(View view){
+        setContentView(R.layout.cadastrar_cliente);
+    }
+    public void btnOnClickViewMenu(View view){
+        setContentView(R.layout.activity_main);
+    }
+    public void btnOnClickViewListar(View view){
+        setContentView(R.layout.listar_clientes);
+    }
+    public void btnOnClickViewEditar(View view){
+        setContentView(R.layout.atualizar_cliente);
+    }
+    public void btnOnClickViewDeletar(View view){
+        setContentView(R.layout.deletar_cliente);
     }
 }
